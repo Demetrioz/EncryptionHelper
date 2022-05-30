@@ -1,0 +1,29 @@
+﻿@inherits MainLayoutBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+	<MudAppBar>
+		<MudIconButton 
+			Icon="@Icons.Material.Filled.Menu" 
+			Color="Color.Inherit" 
+			Edge="Edge.Start" 
+			OnClick="@((e) => ToggleDrawer())"
+		/>
+	</MudAppBar>
+
+	<MudDrawer @bind-Open="@DrawerOpen" ClipMode="DrawerClipMode.Always">
+		<MudNavMenu>
+			<MudNavLink Href="/" Match="NavLinkMatch.All">Key Generator</MudNavLink>
+			<MudNavLink Href="/encryptor" Match="NavLinkMatch.All">RSA Encryptor</MudNavLink>
+		</MudNavMenu>
+	</MudDrawer>
+
+	<MudMainContent>
+		<div style="margin: 16px">
+			@Body
+		</div>
+	</MudMainContent>
+</MudLayout>

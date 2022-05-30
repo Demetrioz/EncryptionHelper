@@ -1,0 +1,53 @@
+﻿@inherits EncryptorBase
+
+@page "/encryptor"
+
+<MudTextField 
+    T="string" 
+    Label="Text" 
+    Variant="Variant.Outlined" 
+    Margin="Margin.Normal"
+    @bind-Value="@Text"
+    Lines="5" 
+/>
+
+<MudTextField 
+    T="string" 
+    Label="Key" 
+    HelperText="XML-Formatted Key"
+    Variant="Variant.Outlined" 
+    Margin="Margin.Normal"
+    @bind-Value="@Key"
+    Lines="5" 
+/>
+
+<MudTextField 
+    T="string" 
+    Label="Result" 
+    Variant="Variant.Outlined"
+    Margin="Margin.Normal"
+    @bind-Value="@Result"
+    ReadOnly="true"
+    Adornment="Adornment.End"
+    AdornmentIcon="@Icons.Material.Filled.CopyAll"
+    OnAdornmentClick="@(() => Copy())"
+    AdornmentAriaLabel="Copy"
+    Lines="5" 
+/>
+
+<div style="display: flex; justify-content: space-around; margin-top: 16px;">
+    <MudButton
+        Variant="Variant.Filled"
+        Color="Color.Success"
+        OnClick="Encrypt"
+    >
+        Encrypt
+    </MudButton>
+    <MudButton
+        Variant="Variant.Filled"
+        Color="Color.Error"
+        OnClick="Decrypt"
+    >
+        Decrypt
+    </MudButton>
+</div>

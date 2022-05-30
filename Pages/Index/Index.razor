@@ -1,0 +1,40 @@
+﻿@inherits IndexBase
+
+@page "/"
+
+<div style="display: flex; flex-direction: row-reverse">
+    <MudButton 
+        Variant="Variant.Filled" 
+        Color="Color.Primary" 
+        OnClick="@GenerateKeyPair"
+    >
+        Generate KeyPair
+    </MudButton>
+</div>
+
+<MudTextField 
+    T="string" 
+    ReadOnly="true"
+    Label="Public Key" 
+    Variant="Variant.Outlined" 
+    Text="@PublicKey" 
+    Margin="Margin.Normal"
+    Lines="5" 
+    Adornment="Adornment.End"
+    AdornmentIcon="@Icons.Material.Filled.CopyAll"
+    OnAdornmentClick="@(() => Copy(PublicKey))"
+    AdornmentAriaLabel="Copy"
+/>
+<MudTextField 
+    T="string"
+    ReadOnly="true"
+    Label="Private Key" 
+    Variant="Variant.Outlined" 
+    Text="@PrivateKey" 
+    Margin="Margin.Normal"
+    Lines="5" 
+    Adornment="Adornment.End"
+    AdornmentIcon="@Icons.Material.Filled.CopyAll"
+    OnAdornmentClick="@(() => Copy(PrivateKey))"
+    AdornmentAriaLabel="Copy"
+/>
